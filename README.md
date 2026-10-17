@@ -98,7 +98,7 @@ iPhone 使用 Safari → 分享 → 加入主畫面；Android Chrome → 選單 
 
 - [四國汽船高松－宮浦航線](https://shikokukisen.com/takamatsu-miyanoura/)：現行渡輪含 08:12–09:02、17:00–18:00；仍須當日確認運航。
 - [小豆島渡輪高松－土庄](https://www.shikokuferry.com/route2)：現行時刻含 08:02–09:02、17:30–18:30。
-- [地中美術館](https://www.benesse-artsite.jp/art/chichu.html)：日期及時段預約制；本行程尚未購票。
+- [地中美術館](https://www.benesse-artsite.jp/art/chichu.html)：日期及時段預約制；旅客回報票已售罄，已取消參觀。
 - [四國水族館交通](https://shikoku-aquarium.jp/access/)：宇多津站北口步行約 12 分鐘。
 - [四國水族館公告](https://shikoku-aquarium.jp/)：官網以「LIFE IN BULE」拼字公告展期 2026/11/05–2027/03/01；以後續公告為準。
 - [JNTO 旅客協助](https://www.japan.travel/en/plan/hotline/)：緊急求助指引；日本消防救護 119、警察 110。
@@ -120,6 +120,8 @@ iPhone 使用 Safari → 分享 → 加入主畫面；Android Chrome → 選單 
 
 ## 2026/10/18 票券更新
 
-依旅客提供的購票截圖，11/03 直島新美術館成人 3 張 × ¥1,500 = ¥4,500；Benesse House Museum／Valley Gallery 成人 3 張 × ¥1,300 = ¥3,900。新增已購票合計 ¥8,400。截圖沒有入場時段，不推定為已確認時間；地中美術館仍尚未購票。行程優先安排已購票館舍，其他美術館保留為備選。
+依旅客提供的購票截圖，11/03 直島新美術館成人 3 張 × ¥1,500 = ¥4,500；Benesse House Museum／Valley Gallery 成人 3 張 × ¥1,300 = ¥3,900。新增已購票合計 ¥8,400。截圖沒有入場時段，不推定為已確認時間；地中美術館票已售罄，已取消參觀。行程優先安排已購票館舍，其他美術館保留為備選。
 
 原始截圖、私人票券頁網址及 QR Code 不收進專案。公開資料僅保留票種、日期、人數與價格。費用頁保留既有本機自記金額；若先前已記入本次門票，使用者應扣除重複金額。官方館舍連結：[直島新美術館](https://benesse-artsite.jp/art/nnmoa.html)、[Benesse House Museum](https://benesse-artsite.jp/art/benessehouse-museum.html)。
+
+2026/10/18 後續更新：依旅客確認，地中美術館已售罄，從 Day 2 移除，取消購票待辦；改以直島新美術館與 Benesse House Museum／Valley Gallery 為主要路線。PWA 開啟及回到頁面時檢查新版，有更新時顯示更新按鈕。頁尾版本為「地中取消版」。
