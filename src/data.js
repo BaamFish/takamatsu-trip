@@ -1,4 +1,9 @@
 export const links={air:'https://www.starlux-airlines.com/',hotel:'https://www.takamatsu-century.com/',ferry:'https://shikokukisen.com/takamatsu-miyanoura/',shodo:'https://www.shikokuferry.com/route2',art:'https://www.benesse-artsite.jp/art/chichu.html',aquarium:'https://shikoku-aquarium.jp/',jr:'https://www.jr-shikoku.co.jp/',airport:'https://www.takamatsu-airport.com/',ougi:'https://ougiya-naoshima.jp/',bus:'https://shodoshima-kotu.com/tw/plan/shuttlebus/',tamamo:'https://www.takamatsujyo.com/',alley:'https://www.kitahama-alley.jp/',museum:'https://www.city.takamatsu.kagawa.jp/museum/takamatsu/'};
+export const museumTickets=[
+{id:'nnmoa',title:'直島新美術館',jp:'直島新美術館',date:'2026/11/03',quantity:3,unitPrice:1500,url:'https://benesse-artsite.jp/art/nnmoa.html'},
+{id:'benesse',title:'Benesse House Museum／Valley Gallery',jp:'ベネッセハウス ミュージアム',date:'2026/11/03',quantity:3,unitPrice:1300,url:'https://benesse-artsite.jp/art/benessehouse-museum.html'}
+];
+export const knownExpenses=[{id:'bus',title:'小豆島觀光巴士 · 3 人',amount:29400,status:'付款待確認'},...museumTickets.map(t=>({id:t.id,title:t.title+' · 成人 '+t.quantity+' 張',amount:t.quantity*t.unitPrice,status:'已購票'}))];
 export const mapUrl=q=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 export const hotel='高松センチュリーホテル 香川県高松市錦町1丁目4-19';
 const item=(id,time,title,jp,description,duration,transport,note,scene='sea',official)=>({id,time,title,jp,description,duration,transport,note,scene,official});
@@ -11,14 +16,16 @@ item('1d','15:00–16:00','玉藻公園・高松城跡','史跡高松城跡 玉�
 item('1e','16:00–16:30','高松站購買 JR 套票','JR高松駅 みどりの窓口','詢問四國水族館套票及 11/05 適用車次。','約 30 分','步行','尚待購買；套票販售、效期與使用列車須由窗口確認。','city',links.jr),
 item('1f','16:30–18:30','三越與丸龜町商店街','高松丸亀町商店街','逛逛高松三越，沿拱廊找一家喜歡的晚餐店。','約 2 小時','步行','高松三越可由下方地點連結導航；依體力提早回飯店。','city','https://kame3.jp/'),
 item('1g','晚上・彈性','晚餐與休息',hotel,'吃飽、休息，為明天的直島早起留一點餘裕。','彈性','步行／計程車','早餐供應時間請向櫃台確認。','city',links.hotel)]},
-{id:2,date:'11/03',weekday:'二',title:'在島上，遇見藝術',subtitle:'直島藝術巡禮',scene:'art',intro:'騎進聚落、看海與建築，也記得留時間休息。',alert:'日本文化日假期。地中美術館尚未購票，需指定時段；坡道依長輩體力改搭巴士。',items:[
+{id:2,date:'11/03',weekday:'二',title:'在島上，遇見藝術',subtitle:'直島藝術巡禮',scene:'art',intro:'騎進聚落、看海與建築，也記得留時間休息。',alert:'日本文化日假期。直島新美術館與 Benesse House Museum／Valley Gallery 各 3 張已購票（11/03），入場時段截圖未顯示，待確認。優先安排已購票館舍；地中美術館尚未購票，其餘景點依時間與體力取捨。',items:[
 item('2a','06:40','飯店出發・高松港','高松港 四国汽船 フェリー乗り場','提前到港購票，確認直島宮浦航線的候船處。','預留至登船','步行／計程車','建議至少開船前 30 分鐘抵達，假日再提早；06:40 為行程規劃。','sea',links.ferry),
 item('2b','08:12–09:02','渡輪前往直島','直島 宮浦港','高松港 → 宮浦港；讓瀨戶內海慢慢展開。','約 50 分','渡輪','現行官方船表相符（2026/10/17 查核）；當日運航再確認，未視為訂票。','sea',links.ferry),
 item('2c','09:30','OUGIYA 電動自行車','おうぎや レンタサイクル 直島','預約三台電動自行車，現場付款。','取車約 30 分','電動自行車','檢查煞車、電量與還車時間；不舒服就改搭車。','art',links.ougi),
 item('2d','上午・彈性','紅南瓜與本村聚落','赤かぼちゃ 直島 宮浦港','先看港邊藝術，再沿路前往本村散步。','依體力安排','自行車／町營巴士','本村藝術聚落另有導航；家計畫入場票與開館日待確認。','art','https://www.benesse-artsite.jp/'),
+item('2-new','參觀時間待安排','直島新美術館・已購票','直島新美術館','11/03 成人票 3 張，每張 ¥1,500，小計 ¥4,500。建議與本村散步一併規劃，順序待確認。','待安排','自行車／町營巴士＋步行','截圖未顯示入場時段，請查原始票券；QR Code 留在私人憑證中，不上傳公開網站。','art',museumTickets[0].url),
 item('2e','中午・彈性','本村午餐','直島 本村','找一間小店坐下，補充水分與體力。','約 1 小時','步行','餐廳尚未預約，假日可能候位。','city'),
-item('2f','下午・待預約','地中美術館','地中美術館','光線、空間與作品交會的美術館。順序依實際購票時段調整。','建議預留 1–1.5 小時','自行車至允許區域／接駁巴士','必須預約指定時段，尚未購票；預留轉乘時間。','art',links.art),
-item('2g','下午・彈性','李禹煥美術館與黃南瓜','李禹煥美術館 直島','依體力選擇參觀，再到海邊與黃南瓜相遇。','約 1–1.5 小時，視取捨','步行／園區接駁','黃南瓜另有導航；園區自行車限制、接駁及票券請看官方。','art','https://www.benesse-artsite.jp/'),
+item('2-benesse','參觀時間待安排','Benesse House Museum／Valley Gallery・已購票','ベネッセハウス ミュージアム','11/03 成人票 3 張，每張 ¥1,300，小計 ¥3,900。此票種名稱包含 Museum／Valley Gallery；兩處另有導航。','待安排，含兩處移動','步行／園區接駁','截圖未顯示入場時段，請查票券適用條件；參觀先後、接駁及還車時間需一起確認。','art',museumTickets[1].url),
+item('2f','備選・尚未購票','地中美術館','地中美術館','光線、空間與作品交會的美術館。列為備選，先確保已購票館舍的參觀與移動時間。','建議預留 1–1.5 小時','自行車至允許區域／接駁巴士','必須預約指定時段，尚未購票；預留轉乘時間。','art',links.art),
+item('2g','彈性備選','李禹煥美術館與黃南瓜','李禹煥美術館 直島','依體力選擇參觀，再到海邊與黃南瓜相遇。','約 1–1.5 小時，視取捨','步行／園區接駁','李禹煥美術館未有購票確認；黃南瓜另有導航，依時間取捨。園區自行車限制、接駁請看官方。','art','https://www.benesse-artsite.jp/'),
 item('2h','約 16:00','歸還自行車','おうぎや レンタサイクル 直島','回宮浦還車、休息並準備回程。','約 30 分','自行車','實際最晚還車時間以店家通知為準。','sea',links.ougi),
 item('2i','17:00–18:00','回到高松港','宮浦港 フェリー乗り場','宮浦港 → 高松港。','約 1 小時','渡輪','現行官方船表相符；建議 16:30 前抵港，當日運航需再確認。','sea',links.ferry)]},
 {id:3,date:'11/04',weekday:'三',title:'小豆島的秋日風景',subtitle:'小豆島觀光',scene:'olive',intro:'搭上觀光巴士，把移動交給司機，好好看風景。',alert:'觀光巴士付款狀態待確認；景點順序與停留時間以旅行社安排為準。',items:[
@@ -39,9 +46,9 @@ item('5b','10:00 前','飯店退房',hotel,'確認隨身物品、證件及行李
 item('5c','約 09:45–10:00 出發','前往高松機場','高松空港 国際線出発ロビー','預計從市區出發，實際依預訂接送或機場巴士調整。','車程依交通狀況','接送待訂／機場巴士備案','回程尚未預訂；請以航空公司報到期限倒推時間。','sea',links.airport),
 item('5d','13:20–15:40','高松 → 台中','臺中國際機場','星宇航空 JX301。五天四夜，謝謝彼此的陪伴。','航程 3 小時 20 分','飛機','時間依您提供訂單；以航空公司最新通知為準。','sea',links.air)]}
 ];
-export const places=[['高松三越','高松三越'],['本村藝術聚落','直島 家プロジェクト 本村'],['直島黃南瓜','南瓜 草間彌生 直島 ベネッセ'],['小豆島橄欖公園','道の駅 小豆島オリーブ公園'],['二十四瞳電影村','二十四の瞳映画村'],['宇多津站','JR宇多津駅'],['高松市美術館','高松市美術館'],['飯店',hotel]];
-export const reservations=[{id:'air',title:'星宇航空・來回機票',status:'依提供訂單',text:'3 位成人｜11/02 JX300 08:50–12:20；11/06 JX301 13:20–15:40。時間為各地當地時間。',url:links.air},{id:'hotel',title:'高松世紀飯店・四晚',status:'依提供訂單',text:'11/02 16:00 後入住，11/06 10:00 前退房。三人房含早餐。1-4-19 Nishikimachi, Takamatsu, Kagawa。',url:links.hotel,place:hotel},{id:'pickup',title:'Klook・抵達接機',status:'行李容量待確認',text:'11/02 高松機場 → 飯店。3 人，Toyota Altis 或同級；須確認行李能否放下及實際集合點。',url:'https://www.klook.com/zh-TW/'},{id:'bike',title:'OUGIYA・電動自行車',status:'現場付款',text:'11/03 09:30，3 台。約 16:00 還車為行程規劃，最晚還車依店家確認。',url:links.ougi,place:'おうぎや レンタサイクル 直島'},{id:'bus',title:'小豆島・觀光巴士',status:'付款待確認',text:'11/04 10:15–16:15，3 人共 ¥29,400。09:30–10:10 土庄港觀光中心報到；景點順序以旅行社為準。',url:links.bus,place:'土庄港観光センター'}];
-export const todos=['預約地中美術館指定時段門票','確認 Klook 三人行李容量與集合點','預訂回程機場交通','確認小豆島巴士付款與包含項目','購買 JR 四國水族館套票並查列車','再次確認渡輪班次、天氣與停航資訊','確認自行車歸還時間及巴士備案','確認水族館展覽與營業時間','準備護照、保險與離線憑證','準備常備藥、行動電源與網路','先開啟網站一次，檢查飛航模式離線閱讀'];
+export const places=[['直島新美術館','直島新美術館'],['Benesse House Museum','ベネッセハウス ミュージアム'],['Valley Gallery','ベネッセハウス ヴァレーギャラリー'],['高松三越','高松三越'],['本村藝術聚落','直島 家プロジェクト 本村'],['直島黃南瓜','南瓜 草間彌生 直島 ベネッセ'],['小豆島橄欖公園','道の駅 小豆島オリーブ公園'],['二十四瞳電影村','二十四の瞳映画村'],['宇多津站','JR宇多津駅'],['高松市美術館','高松市美術館'],['飯店',hotel]];
+export const reservations=[...museumTickets.map(t=>({id:t.id,title:t.title,status:'已購票・11/03',text:`${t.date}｜成人 ${t.quantity} 張 × ¥${t.unitPrice.toLocaleString('ja-JP')} = ¥${(t.quantity*t.unitPrice).toLocaleString('ja-JP')}。依旅客提供的購票截圖確認；入場時段截圖未顯示，請查原始票券。票券 QR Code 請保存在私人裝置。`,url:t.url,place:t.jp})),{id:'air',title:'星宇航空・來回機票',status:'依提供訂單',text:'3 位成人｜11/02 JX300 08:50–12:20；11/06 JX301 13:20–15:40。時間為各地當地時間。',url:links.air},{id:'hotel',title:'高松世紀飯店・四晚',status:'依提供訂單',text:'11/02 16:00 後入住，11/06 10:00 前退房。三人房含早餐。1-4-19 Nishikimachi, Takamatsu, Kagawa。',url:links.hotel,place:hotel},{id:'pickup',title:'Klook・抵達接機',status:'行李容量待確認',text:'11/02 高松機場 → 飯店。3 人，Toyota Altis 或同級；須確認行李能否放下及實際集合點。',url:'https://www.klook.com/zh-TW/'},{id:'bike',title:'OUGIYA・電動自行車',status:'現場付款',text:'11/03 09:30，3 台。約 16:00 還車為行程規劃，最晚還車依店家確認。',url:links.ougi,place:'おうぎや レンタサイクル 直島'},{id:'bus',title:'小豆島・觀光巴士',status:'付款待確認',text:'11/04 10:15–16:15，3 人共 ¥29,400。09:30–10:10 土庄港觀光中心報到；景點順序以旅行社為準。',url:links.bus,place:'土庄港観光センター'}];
+export const todos=['預約地中美術館指定時段門票','確認 Klook 三人行李容量與集合點','預訂回程機場交通','確認小豆島巴士付款與包含項目','購買 JR 四國水族館套票並查列車','再次確認渡輪班次、天氣與停航資訊','確認自行車歸還時間及巴士備案','確認水族館展覽與營業時間','準備護照、保險與離線憑證','準備常備藥、行動電源與網路','先開啟網站一次，檢查飛航模式離線閱讀','確認兩種已購美術館票券的入場時段與適用條件，私人保存 6 張票券','優先安排已購票館舍，評估地中與李禹煥美術館是否仍有時間'];
 
 
 

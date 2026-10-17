@@ -29,7 +29,7 @@ npm run preview
 | DailyItinerary | 五個日期分頁、一次顯示一天、垂直時間軸、完成勾選 |
 | TimelineCard | 時間、插畫、介紹、停留、交通、提醒、Google Maps、官網 |
 | Transportation | 航班、接送、兩條渡輪、JR、直島島內移動 |
-| Reservations | 五筆預約摘要、展開卡片、私人編號本機輸入及複製 |
+| Reservations | 七筆預約／票券摘要、展開卡片、私人編號本機輸入及複製 |
 | Checklist / Budget | 行前清單、日圓費用、常用資訊、緊急聯絡、安裝說明 |
 | BottomNavigation | 手機固定五入口；桌面顯示頂部導航 |
 
@@ -110,10 +110,16 @@ iPhone 使用 Safari → 分享 → 加入主畫面；Android Chrome → 選單 
 - 手機 390px 與桌面寬度下查看首頁、五日分頁、導航與底部列。
 - 勾選一個行程並重新整理，確認完成狀態保留。
 - 用測試字串輸入預約欄位、儲存、複製、清除，不要把真實編號放進測試檔。
-- 費用空白時只合計已知巴士費用，輸入後可重開檢查。
+- 費用空白時合計已知巴士及已購美術館門票 ¥37,800，輸入後可重開檢查。
 - 正式 build 後，在 HTTPS 或 localhost 開啟到離線就緒，再以飛航模式重新載入。
 - Repository 子路徑部署後直接開 `#daily`、重新整理，確認插畫、CSS、JS、manifest 與 sw.js 正常。
 
 目前目標 Repository 為 https://github.com/BaamFish/takamatsu-trip，網站為 https://baamfish.github.io/takamatsu-trip/ 。請使用 GitHub Actions 作為 Pages Source，不可將開發用 index.html 直接用分支根目錄發佈。
 
 
+
+## 2026/10/18 票券更新
+
+依旅客提供的購票截圖，11/03 直島新美術館成人 3 張 × ¥1,500 = ¥4,500；Benesse House Museum／Valley Gallery 成人 3 張 × ¥1,300 = ¥3,900。新增已購票合計 ¥8,400。截圖沒有入場時段，不推定為已確認時間；地中美術館仍尚未購票。行程優先安排已購票館舍，其他美術館保留為備選。
+
+原始截圖、私人票券頁網址及 QR Code 不收進專案。公開資料僅保留票種、日期、人數與價格。費用頁保留既有本機自記金額；若先前已記入本次門票，使用者應扣除重複金額。官方館舍連結：[直島新美術館](https://benesse-artsite.jp/art/nnmoa.html)、[Benesse House Museum](https://benesse-artsite.jp/art/benessehouse-museum.html)。
