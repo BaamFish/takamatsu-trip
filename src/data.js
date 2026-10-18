@@ -1,4 +1,4 @@
-export const links={air:'https://www.starlux-airlines.com/',hotel:'https://www.takamatsu-century.com/',ferry:'https://shikokukisen.com/takamatsu-miyanoura/',shodo:'https://www.shikokuferry.com/route2',aquarium:'https://shikoku-aquarium.jp/',jr:'https://www.jr-shikoku.co.jp/',airport:'https://www.takamatsu-airport.com/',ougi:'https://ougiya-naoshima.jp/',bus:'https://shodoshima-kotu.com/tw/plan/shuttlebus/',tamamo:'https://www.takamatsujyo.com/',alley:'https://www.kitahama-alley.jp/',museum:'https://www.city.takamatsu.kagawa.jp/museum/takamatsu/'};
+export const links={air:'https://www.starlux-airlines.com/',hotel:'https://www.takamatsu-century.com/',ferry:'https://shikokukisen.com/takamatsu-miyanoura/',shodo:'https://www.shikokuferry.com/route2',konpira:'https://www.konpira.or.jp/',kotobus:'https://www.kotobus.com/climbing/tw/',kotoden:'https://www.kotoden.co.jp/',jr:'https://www.jr-shikoku.co.jp/',airport:'https://www.takamatsu-airport.com/',ougi:'https://ougiya-naoshima.jp/',bus:'https://shodoshima-kotu.com/tw/plan/shuttlebus/',tamamo:'https://www.takamatsujyo.com/',alley:'https://www.kitahama-alley.jp/',museum:'https://www.city.takamatsu.kagawa.jp/museum/takamatsu/'};
 export const museumTickets=[
 {id:'nnmoa',title:'直島新美術館',jp:'直島新美術館',date:'2026/11/03',quantity:3,unitPrice:1500,url:'https://benesse-artsite.jp/art/nnmoa.html'},
 {id:'benesse',title:'Benesse House Museum／Valley Gallery',jp:'ベネッセハウス ミュージアム',date:'2026/11/03',quantity:3,unitPrice:1300,url:'https://benesse-artsite.jp/art/benessehouse-museum.html'}
@@ -13,7 +13,7 @@ item('1a','08:50–12:20','飛往高松','高松空港','星宇航空 JX300｜�
 item('1b','12:20–13:30','入境與接機會合','高松空港 国際線到着ロビー','入境、領取行李，依 Klook 憑證指示與司機會合。','預留 70 分','Klook 接機','確切集合位置以憑證與司機通知為準；Toyota Altis 或同級，確認三人行李。','sea',links.airport),
 item('1c','下午・預估','飯店寄放行李',hotel,'高松世紀飯店｜四晚三人房，含早餐。','約 30 分','接機車輛','入住 16:00 後；可先詢問寄放行李。','city',links.hotel),
 item('1d','15:00–16:00','玉藻公園・高松城跡','史跡高松城跡 玉藻公園','沿著海水護城河，感受城下町的安靜午後。','約 1 小時','步行／依體力搭計程車','規劃時間；開園與入園費出發前確認。','city',links.tamamo),
-item('1e','16:00–16:30','高松站購買 JR 套票','JR高松駅 みどりの窓口','詢問四國水族館套票及 11/05 適用車次。','約 30 分','步行','尚待購買；套票販售、效期與使用列車須由窗口確認。','city',links.jr),
+item('1e','16:00–16:30・規劃','市區自由活動・確認琴平交通','JR高松駅','高松市區自由活動，可順便確認 11/05 前往琴平的 JR／琴電車次。','約 30 分','步行','琴平交通尚未購票，確認班次、票價與抵達車站。','city',links.jr),
 item('1f','16:30–18:30','三越與丸龜町商店街','高松丸亀町商店街','逛逛高松三越，沿拱廊找一家喜歡的晚餐店。','約 2 小時','步行','高松三越可由下方地點連結導航；依體力提早回飯店。','city','https://kame3.jp/'),
 item('1g','晚上・彈性','晚餐與休息',hotel,'吃飽、休息，為明天的直島早起留一點餘裕。','彈性','步行／計程車','早餐供應時間請向櫃台確認。','city',links.hotel)]},
 {id:2,date:'11/03',weekday:'二',title:'在島上，遇見藝術',subtitle:'直島藝術巡禮',scene:'art',intro:'新版路線：宮浦紅南瓜 → 本村／直島新美術館 → 午餐 → Benesse House Museum／Valley Gallery → 黃南瓜（視體力）→ 宮浦還車。參觀時段為規劃，依票券條件調整。',alert:'日本文化日假期。直島新美術館與 Benesse House Museum／Valley Gallery 各 3 張已購票（11/03），入場時段截圖未顯示，待確認。以下以兩組已購票館舍為主，其餘景點依時間與體力取捨。',items:[
@@ -33,21 +33,26 @@ item('3b','09:30–10:10','觀光巴士報到','土庄港観光センター','�
 item('3c','10:15–16:15','小豆島觀光巴士','寒霞渓 ロープウェイ 紅雲亭駅','寒霞溪、橄欖公園、二十四瞳電影村，悠閒走訪島上風景。','約 6 小時','觀光巴士','順序非固定；各景點另有下方導航。餐食、纜車及門票是否包含須查憑證。','olive',links.bus),
 item('3d','16:15 後・彈性','土庄港休息候船','土庄港 フェリーターミナル','留一點緩衝時間，坐下喝水、整理伴手禮。','約 1 小時','步行','若巴士延誤，先查下一班船，避免趕路。','sea',links.shodo),
 item('3e','17:30–18:30','渡輪回高松','土庄港 高松行き フェリー乗り場','土庄港 → 高松港。','約 60 分','渡輪','建議 17:00 前到港；現行官方船表相符，當天再查運航。','sea',links.shodo)]},
-{id:4,date:'11/05',weekday:'四',title:'與四國的海相遇',subtitle:'四國水族館',scene:'aquarium',intro:'看魚群游過，午後留給咖啡與城市散步。',alert:'JR 套票尚待購買；列車班次未選定。藝術展以當日公告與入館條件為準。',items:[
-item('4a','約 09:30','搭 JR 前往宇多津','JR高松駅','高松站 → 宇多津站；到站後步行約 12 分鐘至水族館。','依所選車次','JR＋步行','此為預估出發時間，確認是否轉車及套票可搭列車。','city',links.jr),
-item('4b','10:30–13:00','四國水族館','四国水族館 香川県綾歌郡宇多津町浜一番丁4','慢慢欣賞四國的水中風景，館內安排休息。','約 2.5 小時','步行','官網公告 LIFE IN BULE 展期 2026/11/05–2027/03/01；出發前再確認。','aquarium',links.aquarium),
-item('4c','中午・彈性','宇多津午餐','宇多津駅','午餐後依車次返回高松。','約 1 小時','步行／JR','約 14:45 回到高松為預估，尚未指定班次。','city'),
-item('4d','15:00–17:00','北濱 Alley 或高松市美術館','北浜alley 高松','海邊倉庫咖啡與藝文空間，兩個選項擇一安排。','約 2 小時','步行／計程車','高松市美術館另有導航；展覽、營業時間待查。','city',links.alley),
-item('4e','晚上・彈性','伴手禮與晚餐','高松丸亀町商店街','最後一晚，慢慢挑選旅途的紀念。','彈性','步行','回飯店整理行李，確認明日機場交通。','city')]},
+{id:4,date:'11/05',weekday:'四',title:'慢慢走，琴平的秋日',subtitle:'金刀比羅宮・琴平老街',scene:'city',intro:'飯店早餐 → 琴平 → 金刀比羅宮 → 烏龍麵午餐 → 老街與咖啡 → 返回高松。依旅遊說明書更新，以下為規劃時間，列車與接駁尚未確認。',alert:'以長輩體力安排，不以走完 785 階為目標。登山接駁若至大門，文件提醒仍約有 420 階到御本宮；隨時休息或折返。接駁營運、費用及叫車方式待確認。',items:[
+item('4-breakfast','08:00–09:00・規劃','飯店早餐',hotel,'悠閒吃早餐，再準備今天的琴平散步。','約 1 小時','飯店內','早餐實際供應時間請向飯店確認。','city',links.hotel),
+item('4-outbound','09:00–10:15・規劃','高松出發前往琴平','琴平駅','從高松搭 JR 或琴電前往琴平；實際抵達車站依選擇的鐵路而異。','預留 1 小時 15 分','JR／琴電＋步行','尚未購票；車次、票價及車站到參道的步行距離，出發前確認。琴電琴平站另有導航。','city',links.jr),
+item('4-shuttle','10:15–10:30・規劃','琴平抵達與接駁評估','金刀比羅宮 大門','依長輩體力考慮登山接駁車至大門附近；不搭車則慢走，隨時調整。','預留 15 分，依實際交通調整','登山接駁待確認／步行','未預約接駁；價格、當日營運、叫車方式及上下車位置皆待確認，並非保證可搭。','city',links.kotobus),
+item('4-shrine','10:30–12:30・規劃','金刀比羅宮・慢步參拜','金刀比羅宮','秋季參拜，沿途慢走、休息，以家人體力決定走到哪裡。','預留約 2 小時，可提早折返','步行・階梯','不以完成 785 階為目標。文件提醒大門至御本宮仍約 420 階；接駁不代表免爬階梯。11 月初紅葉可能尚未盛開。','city',links.konpira),
+item('4-lunch','12:30–13:30・規劃','琴平表參道・烏龍麵午餐','金刀比羅宮 表参道','在表參道或老街找一間讚岐烏龍麵店，坐下慢慢休息。','約 1 小時','步行','餐廳未指定、未預約；候位及營業時間依當日店家為準。','city'),
+item('4-oldtown','13:30–15:00・規劃','琴平老街・咖啡與伴手禮','金刀比羅宮 表参道','隨興逛伴手禮、咖啡廳與傳統街景，留一個不用趕路的午後。','約 1.5 小時，可縮短','步行','依體力自由調整，可提早回高松休息。','city'),
+item('4-return','15:00–16:30・預估','搭車返回高松','JR高松駅','搭 JR 或琴電返回高松；選擇琴電時抵達車站依路線調整。','預留約 1.5 小時','JR／琴電＋步行','尚未選定列車；出發前確認回程班次，不視為已訂票。','city',links.jr),
+item('4-rest','16:30 後・彈性','回飯店休息',hotel,'先回飯店休息，還有餘力再去高松商店街自由活動。','彈性','步行／計程車','長輩若累了，直接留在飯店休息即可。','city',links.hotel),
+item('4-evening','17:30 後・彈性','最後一晚・晚餐與整理行李','高松丸亀町商店街','晚餐、伴手禮採買，回飯店整理行李。','彈性','步行','確認隔日前往機場的交通與行李容量。','city')
+]},
 {id:5,date:'11/06',weekday:'五',title:'把瀨戶內帶回日常',subtitle:'高松返程',scene:'sea',intro:'早餐、最後一眼海景，帶著回憶回家。',alert:'回程接送尚未預訂。10:00 前退房；09:45–10:00 出發為暫估，依交通安排與航空公司要求調整。',items:[
 item('5a','上午・視時間','早餐與 Sunport 散步','サンポート高松','若時間充裕，吃過早餐再去海邊走走。','彈性','步行','以不影響機場出發為前提；行李先整理完。','sea'),
 item('5b','10:00 前','飯店退房',hotel,'確認隨身物品、證件及行李都已備齊。','約 15 分','步行','建議配合接送時間提早完成。','city',links.hotel),
 item('5c','約 09:45–10:00 出發','前往高松機場','高松空港 国際線出発ロビー','預計從市區出發，實際依預訂接送或機場巴士調整。','車程依交通狀況','接送待訂／機場巴士備案','回程尚未預訂；請以航空公司報到期限倒推時間。','sea',links.airport),
 item('5d','13:20–15:40','高松 → 台中','臺中國際機場','星宇航空 JX301。五天四夜，謝謝彼此的陪伴。','航程 3 小時 20 分','飛機','時間依您提供訂單；以航空公司最新通知為準。','sea',links.air)]}
 ];
-export const places=[['直島新美術館','直島新美術館'],['Benesse House Museum','ベネッセハウス ミュージアム'],['Valley Gallery','ベネッセハウス ヴァレーギャラリー'],['高松三越','高松三越'],['本村藝術聚落','直島 家プロジェクト 本村'],['直島黃南瓜','南瓜 草間彌生 直島 ベネッセ'],['小豆島橄欖公園','道の駅 小豆島オリーブ公園'],['二十四瞳電影村','二十四の瞳映画村'],['宇多津站','JR宇多津駅'],['高松市美術館','高松市美術館'],['飯店',hotel]];
+export const places=[['直島新美術館','直島新美術館'],['Benesse House Museum','ベネッセハウス ミュージアム'],['Valley Gallery','ベネッセハウス ヴァレーギャラリー'],['高松三越','高松三越'],['本村藝術聚落','直島 家プロジェクト 本村'],['直島黃南瓜','南瓜 草間彌生 直島 ベネッセ'],['小豆島橄欖公園','道の駅 小豆島オリーブ公園'],['二十四瞳電影村','二十四の瞳映画村'],['金刀比羅宮','金刀比羅宮'],['琴平表參道','金刀比羅宮 表参道'],['JR 琴平站','琴平駅'],['琴電琴平站','琴電琴平駅'],['琴電高松築港站','高松築港駅'],['飯店',hotel]];
 export const reservations=[...museumTickets.map(t=>({id:t.id,title:t.title,status:'已購票・11/03',text:`${t.date}｜成人 ${t.quantity} 張 × ¥${t.unitPrice.toLocaleString('ja-JP')} = ¥${(t.quantity*t.unitPrice).toLocaleString('ja-JP')}。依旅客提供的購票截圖確認；入場時段截圖未顯示，請查原始票券。票券 QR Code 請保存在私人裝置。`,url:t.url,place:t.jp})),{id:'air',title:'星宇航空・來回機票',status:'依提供訂單',text:'3 位成人｜11/02 JX300 08:50–12:20；11/06 JX301 13:20–15:40。時間為各地當地時間。',url:links.air},{id:'hotel',title:'高松世紀飯店・四晚',status:'依提供訂單',text:'11/02 16:00 後入住，11/06 10:00 前退房。三人房含早餐。1-4-19 Nishikimachi, Takamatsu, Kagawa。',url:links.hotel,place:hotel},{id:'pickup',title:'Klook・抵達接機',status:'行李容量待確認',text:'11/02 高松機場 → 飯店。3 人，Toyota Altis 或同級；須確認行李能否放下及實際集合點。',url:'https://www.klook.com/zh-TW/'},{id:'bike',title:'OUGIYA・電動自行車',status:'現場付款',text:'11/03 09:30，3 台。約 16:00 還車為行程規劃，最晚還車依店家確認。',url:links.ougi,place:'おうぎや レンタサイクル 直島'},{id:'bus',title:'小豆島・觀光巴士',status:'付款待確認',text:'11/04 10:15–16:15，3 人共 ¥29,400。09:30–10:10 土庄港觀光中心報到；景點順序以旅行社為準。',url:links.bus,place:'土庄港観光センター'}];
-export const todos=['確認兩組已購票館舍的參觀動線','確認 Klook 三人行李容量與集合點','預訂回程機場交通','確認小豆島巴士付款與包含項目','購買 JR 四國水族館套票並查列車','再次確認渡輪班次、天氣與停航資訊','確認自行車歸還時間及巴士備案','確認水族館展覽與營業時間','準備護照、保險與離線憑證','準備常備藥、行動電源與網路','先開啟網站一次，檢查飛航模式離線閱讀','確認兩種已購美術館票券的入場時段與適用條件，私人保存 6 張票券','優先安排兩組已購票館舍，李禹煥美術館視時間取捨'];
+export const todos=['確認兩組已購票館舍的參觀動線','確認 Klook 三人行李容量與集合點','預訂回程機場交通','確認小豆島巴士付款與包含項目','確認高松↔琴平 JR／琴電班次、票價與抵達車站','再次確認渡輪班次、天氣與停航資訊','確認自行車歸還時間及巴士備案','確認金刀比羅宮接駁車營運、費用與叫車方式','準備護照、保險與離線憑證','準備常備藥、行動電源與網路','先開啟網站一次，檢查飛航模式離線閱讀','確認兩種已購美術館票券的入場時段與適用條件，私人保存 6 張票券','優先安排兩組已購票館舍，李禹煥美術館視時間取捨'];
 
 
 
