@@ -1,3 +1,4 @@
+import {placeLanguage,phrases,pronunciationTips} from '../src/language.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -9,3 +10,5 @@ test('每個日期符合 2026 當地日曆',()=>{for(const d of days){assert.equ
 test('已購票日期、數量與費用一致，未推定時段',()=>{assert.equal(museumTickets.length,2);assert.deepEqual(museumTickets.map(t=>t.quantity),[3,3]);assert.deepEqual(museumTickets.map(t=>t.unitPrice),[1500,1300]);assert.equal(museumTickets.reduce((sum,t)=>sum+t.quantity*t.unitPrice,0),8400);assert.equal(knownExpenses.reduce((sum,e)=>sum+e.amount,0),37800);for(const t of museumTickets){assert.equal(t.date,'2026/11/03');assert.match(reservations.find(r=>r.id===t.id).status,/已購票/)}for(const id of ['2-new','2-benesse'])assert.match(days[1].items.find(i=>i.id===id).time,/待安排/);assert.ok(!days[1].items.some(i=>i.title==='地中美術館'));assert.doesNotMatch(JSON.stringify({days,reservations,todos}),/地中美術館|chichu/);assert.doesNotMatch(JSON.stringify({days,reservations}),/users\/mypage|my-ticket/)});
 
 test('Day 4 依文件改為琴平，移除舊套票與保留待確認資訊',()=>{const day=days[3];assert.match(day.subtitle,/金刀比羅宮・琴平老街/);assert.ok(!day.items.some(i=>/水族館|宇多津/.test(JSON.stringify(i))));assert.match(day.alert,/420 階/);assert.match(day.items.find(i=>i.id==='4-shuttle').note,/未預約/);assert.match(day.items.find(i=>i.id==='4-outbound').note,/尚未購票/);assert.ok(!todos.some(t=>/購買.*水族館/.test(t)));assert.match(days[0].items.find(i=>i.id==='1e').description,/琴平/)});
+
+test('所有行程與導航地點都有日文、假名與羅馬字',()=>{for(const q of [...days.flatMap(d=>d.items.map(i=>i.jp)),...places.map(p=>p[1]),...reservations.filter(r=>r.place).map(r=>r.place)]){const n=placeLanguage[q];assert.ok(n,'Missing pronunciation: '+q);for(const key of ['japanese','kana','romaji'])assert.ok(n[key]);assert.match(n.romaji,/[A-Za-z]/)}assert.ok(phrases.length>=30);assert.equal(new Set(phrases.map(p=>p.category)).size,6);for(const p of phrases){assert.ok(p.meaning&&p.japanese&&p.romaji&&p.note)}assert.ok(pronunciationTips.length>=4)});
