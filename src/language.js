@@ -1,5 +1,7 @@
 // 羅馬字採便於旅客閱讀的赫本式；長音以 ā ī ū ē ō 表示。
 export const placeLanguage = {
+"栗林公園 南湖 和船乗り場":{"japanese":"栗林公園・南湖 和船乗り場","kana":"りつりんこうえん・なんこ わせんのりば","romaji":"Ritsurin kōen / Nanko wasen noriba"},
+"栗林公園駅":{"japanese":"栗林公園駅","kana":"りつりんこうえんえき","romaji":"Ritsurin kōen eki"},
 "大衆焼肉しんすけ トキワ新町店 香川県高松市瓦町1丁目10-16":{"japanese":"大衆焼肉しんすけ トキワ新町店","kana":"たいしゅうやきにくしんすけ トキワしんまちてん","romaji":"Taishū Yakiniku Shinsuke Tokiwa Shinmachi ten"},
   "高松空港": {
     "japanese": "高松空港",
