@@ -415,5 +415,31 @@ export const scenarios=[
       "kana": "しょうしょうおまちください。",
       "romaji": "Shōshō omachi kudasai."
     }
+  },
+  {
+    "id": "scenario-17",
+    "day": 1,
+    "title": "しんすけ 18:30 晚餐入店",
+    "itemId": "1-dinner",
+    "question": "到しんすけ トキワ新町店，想向店員說明你們是 18:30 已預約的三位客人，怎麼說？",
+    "options": [
+      "18時半に三人で予約しています。",
+      "三人とも予約していません。",
+      "明日の朝に予約しています。"
+    ],
+    "answer": 0,
+    "explanation": "18時半是 18:30，三人で予約しています表示已預約三位。接著在自己的手機出示確認憑證；不需把姓名或訂位編號放上公開頁面。",
+    "say": {
+      "meaning": "我預約了 18:30，三位。",
+      "japanese": "18時半に三人で予約しています。",
+      "kana": "じゅうはちじはんにさんにんでよやくしています。",
+      "romaji": "Jūhachiji han ni sannin de yoyaku shite imasu."
+    },
+    "hear": {
+      "meaning": "請問預約姓名？",
+      "japanese": "ご予約のお名前をお願いします。",
+      "kana": "ごよやくのおなまえをおねがいします。",
+      "romaji": "Goyoyaku no onamae o onegai shimasu."
+    }
   }
 ];
