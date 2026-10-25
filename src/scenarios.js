@@ -1,4 +1,4 @@
-// 模擬對話與練習，不是當日工作人員的實際答覆。
+// 模擬對話與練習，不是實際店員答覆。
 export const scenarios=[
   {
     "id": "scenario-1",
@@ -54,17 +54,17 @@ export const scenarios=[
   },
   {
     "id": "scenario-3",
-    "day": 1,
+    "day": 5,
     "title": "玉藻公園入口",
-    "itemId": "1d",
-    "question": "走到高松城跡附近，想確認玉藻公園入口在哪裡。",
+    "itemId": "5-tamamo",
+    "question": "返程早上短逛玉藻公園，08:00 左右要從哪個方向入園較合適？",
     "options": [
-      "問回高松港的末班船",
-      "詢問退房時間",
-      "說出玉藻公園名稱並問入口位置"
+      "往當時已開門的西門，並保留回飯店與機場時間",
+      "等東門開再加逛高松港",
+      "不管接送時間，慢慢逛到中午"
     ],
-    "answer": 2,
-    "explanation": "「入口」是入口；也可以把本頁景點日文出示給對方。",
+    "answer": 0,
+    "explanation": "11 月西門 06:30 開門、東門 08:30 開門。散步可略過，機場交通優先。",
     "say": {
       "meaning": "玉藻公園入口在哪裡？",
       "japanese": "玉藻公園の入口はどこですか。",
@@ -81,27 +81,27 @@ export const scenarios=[
   {
     "id": "scenario-4",
     "day": 1,
-    "title": "丸龜町商店街購物",
-    "itemId": "1f",
-    "question": "在高松丸龜町商店街選好伴手禮，想把送給不同家人的禮物分開裝。",
+    "title": "D1 栗林公園取消原和船",
+    "itemId": "1-cancel-wasen",
+    "question": "D1 到栗林公園想取消原 11/05 和船預約，哪個做法合適？",
     "options": [
-      "要求免費包裝且不用問",
-      "詢問能否分開裝袋，並確認可能的費用",
-      "直接拆店家陳列包裝"
+      "詢問櫃台可否代辦；不行則依通知打電話取消",
+      "把網站刪掉就代表實際取消",
+      "認為已自動改成 D1 的船班"
     ],
-    "answer": 1,
-    "explanation": "包裝與袋子可能另收費，先詢問店員。",
+    "answer": 0,
+    "explanation": "原預約尚未取消，網站調整不會變更實際訂單；通知要求電話取消，現場能否協助須詢問。",
     "say": {
-      "meaning": "可以分開裝袋嗎？",
-      "japanese": "袋を分けていただけますか。",
-      "kana": "ふくろをわけていただけますか。",
-      "romaji": "Fukuro o wakete itadakemasu ka."
+      "meaning": "我想取消 11 月 5 日的和船預約。",
+      "japanese": "11月5日の和船の予約をキャンセルしたいです。",
+      "kana": "じゅういちがついつかのわせんのよやくをキャンセルしたいです。",
+      "romaji": "Jūichi-gatsu itsuka no wasen no yoyaku o kyanseru shitai desu."
     },
     "hear": {
-      "meaning": "需要購物袋嗎？",
-      "japanese": "レジ袋はご利用ですか。",
-      "kana": "レジぶくろはごりようですか。",
-      "romaji": "Rejibukuro wa goriyō desu ka."
+      "meaning": "請告訴我預約編號。",
+      "japanese": "予約番号を教えてください。",
+      "kana": "よやくばんごうをおしえてください。",
+      "romaji": "Yoyaku bangō o oshiete kudasai."
     }
   },
   {
@@ -393,16 +393,16 @@ export const scenarios=[
   {
     "id": "scenario-16",
     "day": 5,
-    "title": "Sunport 散步與飯店退房",
+    "title": "玉藻散步後退房",
     "itemId": "5b",
-    "question": "最後一天準備退房並去機場，應如何表達退房？",
+    "question": "D5 玉藻公園散步後，回飯店要辦理退房，怎麼說？",
     "options": [
       "請櫃台辦理退房，再確認行李與機場交通",
       "把抵達接機當作回程也訂好",
       "為了散步忽略機場時間"
     ],
     "answer": 0,
-    "explanation": "上午散步以不影響退房及機場報到為前提，回程交通尚待安排。",
+    "explanation": "先確認機場交通並收好行李。天候不好、疲累或接送提早時略過散步，不再加排 Sunport。",
     "say": {
       "meaning": "我要辦理退房",
       "japanese": "チェックアウトをお願いします。",

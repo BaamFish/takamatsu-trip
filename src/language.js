@@ -1,5 +1,7 @@
 // 羅馬字採便於旅客閱讀的赫本式；長音以 ā ī ū ē ō 表示。
 export const placeLanguage = {
+"栗林公園":{"japanese":"栗林公園","kana":"りつりんこうえん","romaji":"Ritsurin kōen"},
+"玉藻公園 西門":{"japanese":"玉藻公園 西門","kana":"たまもこうえん にしもん","romaji":"Tamamo kōen nishimon"},
 "しまんと3号":{"japanese":"しまんと3号","kana":"しまんとさんごう","romaji":"Shimanto san-gō"},
 "栗林公園 南湖 和船乗り場":{"japanese":"栗林公園・南湖 和船乗り場","kana":"りつりんこうえん・なんこ わせんのりば","romaji":"Ritsurin kōen / Nanko wasen noriba"},
 "栗林公園駅":{"japanese":"栗林公園駅","kana":"りつりんこうえんえき","romaji":"Ritsurin kōen eki"},

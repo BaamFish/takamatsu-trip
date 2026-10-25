@@ -1,4 +1,4 @@
-// 依截至 2026/10/25 已提供的憑證核對；預約完成不等同所有付款／取票完成。
+// 2026/10/26 調整：和船待取消，尚未辦理。
 export const preparationTasks=[
   {
     "id": "booked-flight",
@@ -64,13 +64,6 @@ export const preparationTasks=[
     "defaultDone": true
   },
   {
-    "id": "booked-wasen",
-    "title": "11/05 15:30 栗林公園和船已預約",
-    "note": "南湖第 27 便，成人 3 人；15:00 前現場付款購票。",
-    "group": "已完成的預約",
-    "defaultDone": true
-  },
-  {
     "id": "luggage",
     "group": "最優先",
     "title": "確認接機三人行李容量及集合點",
@@ -105,7 +98,7 @@ export const preparationTasks=[
     "id": "kotoden-return",
     "group": "最優先",
     "title": "再查 11/05 琴電回程時刻與購票方式",
-    "note": "13:12 為先前查核的候選，未購票；13:00 前到琴電琴平站為規劃，目標 14:30 抵園。",
+    "note": "回程 JR 未訂到；琴電回高松為備案，下午依體力選班次，不再綁定 13:12 或栗林公園期限。",
     "defaultDone": false
   },
   {
@@ -175,13 +168,6 @@ export const preparationTasks=[
     "defaultDone": false
   },
   {
-    "id": "wasen-pay",
-    "group": "前晚與當天",
-    "title": "11/05 15:00 前完成和船現場付款購票",
-    "note": "預約已完成，但購票尚未完成。三人 ¥2,550，入園費另計；目標 14:30 抵園。",
-    "defaultDone": false
-  },
-  {
     "id": "bike-pay",
     "group": "前晚與當天",
     "title": "11/03 OUGIYA 現場付款並檢查車況",
@@ -194,12 +180,19 @@ export const preparationTasks=[
     "title": "辦理航班報到並再查行李額度與機場交通",
     "note": "依航空公司及個人機票規定；11/06 務必重新確認報到期限。",
     "defaultDone": false
+  },
+  {
+    "id": "cancel-wasen-d1",
+    "group": "最優先",
+    "title": "D1 到栗林公園詢問取消原 11/05 和船預約",
+    "note": "尚未取消。原通知要求電話取消，現場能否代辦須詢問；若不能受理，致電 087-833-7413，日本時間 08:30–17:00。",
+    "defaultDone": false
   }
 ];
 export const departureReminders=[
   {
     "title": "11/02 抵達與晚餐",
-    "text": "接機行李容量仍待確認；飯店 16:00 後入住。18:30 已確認燒肉晚餐，購物提早結束。"
+    "text": "接機行李容量待確認。寄放行李及午餐後，約 15:00–16:30 栗林公園散步、詢問原和船取消；不購物。回飯店入住休息後赴 18:30 燒肉晚餐。"
   },
   {
     "title": "11/03 文化日・直島",
@@ -210,12 +203,12 @@ export const departureReminders=[
     "text": "觀光巴士已預約，付款未確認；09:30–10:10 報到，順序與包含項目依旅行社。"
   },
   {
-    "title": "11/05 琴平與栗林公園",
-    "text": "JR 去程 08:25–09:00 已預訂，先確認取票。回程琴電未購票；15:00 前完成和船付款購票、15:30 乘船。參拜可折返，逛街可略過。"
+    "title": "11/05 悠閒琴平",
+    "text": "JR 去程 08:25–09:00 已預訂。慢慢參拜、午餐、散步與休息；回程琴電未購票，依體力選班次。D4 不再安排栗林公園或和船，原預約仍待實際取消。"
   },
   {
     "title": "11/06 返程",
-    "text": "10:00 前退房；機場接送尚待安排，不能把去程接機視為往返。"
+    "text": "行李前晚收好，早餐後約 08:00–08:45 玉藻公園西門短逛，09:00–09:15 回飯店拿行李退房為目標。機場交通尚待安排，若需提早出發則略過散步；不加排 Sunport。"
   }
 ];
 export function initialChecklist(legacy={}){return Object.fromEntries(preparationTasks.map(t=>[t.id,t.defaultDone||(t.legacyIndex!==undefined&&legacy[t.legacyIndex]===true)]))}
