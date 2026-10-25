@@ -1,5 +1,11 @@
 // 羅馬字採便於旅客閱讀的赫本式；長音以 ā ī ū ē ō 表示。
 export const placeLanguage = {
+"松風庵かねすえ 高松丸亀町店":{"japanese":"松風庵かねすえ 高松丸亀町店","kana":"しょうふうあんかねすえ たかまつまるがめまちてん","romaji":"Shōfūan Kanesue Takamatsu Marugamemachi ten"},
+"Francfranc 高松店":{"japanese":"Francfranc 高松店","kana":"フランフラン たかまつてん","romaji":"Furanfuran Takamatsu ten"},
+"ドン・キホーテ高松丸亀町店":{"japanese":"ドン・キホーテ高松丸亀町店","kana":"ドン・キホーテたかまつまるがめまちてん","romaji":"Don Kihōte Takamatsu Marugamemachi ten"},
+"ココカラファイン高松丸亀町店":{"japanese":"ココカラファイン高松丸亀町店","kana":"ココカラファインたかまつまるがめまちてん","romaji":"Kokokara Fain Takamatsu Marugamemachi ten"},
+"サンマルクカフェ 高松丸亀町店":{"japanese":"サンマルクカフェ 高松丸亀町店","kana":"サンマルクカフェ たかまつまるがめまちてん","romaji":"Sanmaruku Kafe Takamatsu Marugamemachi ten"},
+"高松丸亀町壱番街前ドーム広場":{"japanese":"高松丸亀町壱番街前ドーム広場","kana":"たかまつまるがめまちいちばんがいまえドームひろば","romaji":"Takamatsu Marugamemachi Ichibangai-mae dōmu hiroba"},
 "栗林公園":{"japanese":"栗林公園","kana":"りつりんこうえん","romaji":"Ritsurin kōen"},
 "玉藻公園 西門":{"japanese":"玉藻公園 西門","kana":"たまもこうえん にしもん","romaji":"Tamamo kōen nishimon"},
 "しまんと3号":{"japanese":"しまんと3号","kana":"しまんとさんごう","romaji":"Shimanto san-gō"},
