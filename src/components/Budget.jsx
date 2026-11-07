@@ -1,4 +1,51 @@
 import {knownExpenses} from '../data';
+import {tripSpending} from '../budget';
 import {useStored} from '../hooks';
-const fields=[['flight','機票（3 人）'],['hotel','飯店（4 晚）'],['pickup','機場交通'],['ferry','渡輪'],['bike','自行車'],['kotohira','琴電回程與琴平接駁（不含已訂 JR）'],['art','其他美術館門票（不含已購票）'],['food','餐飲與其他']];
-export default function Budget(){const [costs,setCosts,error]=useStored('takamatsu-budget-v1',{});const total=knownExpenses.reduce((sum,e)=>sum+e.amount,0)+fields.reduce((sum,[id])=>sum+(Number(costs[id])||0),0);return <section className="section"><p className="eyebrow">TRAVEL BUDGET</p><h2>旅行費用，一起記。</h2><p className="muted">JR 去程 ¥12,607 已列入憑證金額；下方琴平交通僅填回程與接駁，自記金額請勿重複列入已知費用。和船預約取消尚待辦理，¥2,550 未列入本次預計支出。第一晚燒肉餐費未提供，尚未列入已知金額。日圓計價。下方為手動填入的預估／自記金額，不代表已付款；台幣支出請自行換算後填入。</p><div className="budget-total"><span>目前列入金額 · 3 人合計</span><strong>¥{total.toLocaleString('ja-JP')}</strong><small>其餘空白項目未列入，並非完整旅行總費用</small></div>{knownExpenses.map(e=><div className="budget-row" key={e.id}><span>{e.title}</span><b>¥{e.amount.toLocaleString('ja-JP')}</b><span className="badge">{e.status}</span></div>)}<p className="muted">已購美術館票共 ¥8,400，已自動列入。自記金額請勿重複列入這筆門票。</p>{costs.jr&&<p className="muted">待歸類的交通自記金額為 ¥{Number(costs.jr).toLocaleString('ja-JP')}，保留在本機且未列入合計；請核對後填入適當費用欄。</p>}{fields.map(([id,label])=><label className="budget-row" key={id}><span>{label}</span><span className="budget-input">¥ <input type="number" min="0" max="99999999" step="1" inputMode="numeric" placeholder="尚未填寫" value={costs[id]??''} onChange={e=>{const v=e.target.value;if(v===''||(Number.isFinite(Number(v))&&Number(v)>=0&&Number(v)<=99999999))setCosts({...costs,[id]:v})}} aria-label={`${label}日圓金額`}/></span></label>)}{error&&<p role="alert">費用無法儲存在此瀏覽器。</p>}</section>}
+
+const fields=[['flight','機票（3 人）'],['hotel','飯店（4 晚）'],['pickup','機場交通'],['ferry','渡輪'],['bike','自行車'],['kotohira','琴平交通與接駁'],['art','其他美術館門票'],['food','餐飲與其他']];
+
+export default function Budget(){
+  const [costs,setCosts,error]=useStored('takamatsu-budget-v1',{});
+  const {cash,creditCard,total}=tripSpending;
+  return <section className="section">
+    <p className="eyebrow">TRAVEL EXPENSES</p>
+    <h2>旅行費用，一起記。</h2>
+    <p className="muted">五天四夜・3 位成人家庭自由行。以下現金為三人合計概算，信用卡另行統計。</p>
+    <div className="departure-grid">
+      <article className="panel">
+        <h3>現金花費</h3>
+        <div className="budget-row"><span>準備現金</span><b>{cash.preparedLabel}</b></div>
+        <div className="budget-row"><span>旅行結束剩餘</span><b>{cash.remainingLabel}</b></div>
+        <div className="budget-row"><span>實際現金使用</span><b>{cash.usedLabel}</b></div>
+        <p><span className="badge">{cash.status}</span></p>
+        <p>缺少逐筆現金明細，目前以使用總額作為彙總紀錄。現金使用不等於整趟旅行總花費。</p>
+      </article>
+      <article className="panel">
+        <h3>信用卡花費</h3>
+        <p><b>{creditCard.status}</b></p>
+        <p>尚無可確認的完整刷卡總額；未填金額不代表零支出。取得正式帳單後，再核對各筆消費、退款及入帳幣別。</p>
+      </article>
+    </div>
+    <div className="budget-total">
+      <span>整趟旅行總花費・3 人合計</span>
+      <strong>{total.status}</strong>
+      <small>待正式信用卡帳單核對後，再合併現金與其他未重複的實際支出；不同幣別須先統一換算。</small>
+    </div>
+    <div className="notice">
+      <b>費用計算方式</b>
+      <p>換匯與提款是資金移轉，不另外當作旅費。現金彙總已涵蓋的消費，不再加上零散現金估算；下方預約金額與自記分類可能已包含於現金或刷卡紀錄，因此不直接計入總額。</p>
+    </div>
+    <details className="panel">
+      <summary>預約與票券金額參考（不另加總）</summary>
+      <p className="muted">供對帳使用；預約金額不等於新增支出，付款狀態仍以原始憑證與帳單為準。</p>
+      {knownExpenses.map(e=><div className="budget-row" key={e.id}><span>{e.title}</span><b>¥{e.amount.toLocaleString('ja-JP')}</b><span className="badge">{e.status}</span></div>)}
+    </details>
+    <details className="panel">
+      <summary>本機自記分類參考（不計入總額）</summary>
+      <p className="muted">保留這台裝置既有的分類紀錄，供後續對帳。金額為日圓，可能包含估算或與現金彙總重疊，尚未按付款方式核對，不作為新增支出。</p>
+      {costs.jr&&<p className="muted">待歸類交通紀錄：¥{Number(costs.jr).toLocaleString('ja-JP')}，不計入總額。</p>}
+      {fields.map(([id,label])=><label className="budget-row" key={id}><span>{label}</span><span className="budget-input">¥ <input type="number" min="0" max="99999999" step="1" inputMode="numeric" placeholder="尚未填寫" value={costs[id]??''} onChange={e=>{const v=e.target.value;if(v===''||(Number.isFinite(Number(v))&&Number(v)>=0&&Number(v)<=99999999))setCosts({...costs,[id]:v})}} aria-label={`${label}日圓金額`}/></span></label>)}
+    </details>
+    {error&&<p role="alert">費用無法儲存在此瀏覽器。</p>}
+  </section>;
+}
