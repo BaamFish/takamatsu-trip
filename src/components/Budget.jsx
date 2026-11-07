@@ -1,5 +1,5 @@
 import {knownExpenses} from '../data';
-import {tripSpending,matchedCardTransactions} from '../budget';
+import {tripSpending,matchedCardTransactions,suicaTransactions,suicaExpenseSubtotal} from '../budget';
 import {useStored} from '../hooks';
 
 const fields=[['flight','機票（3 人）'],['hotel','飯店（4 晚）'],['pickup','機場交通'],['ferry','渡輪'],['bike','自行車'],['kotohira','琴平交通與接駁'],['art','其他美術館門票'],['food','餐飲與其他']];
@@ -28,15 +28,23 @@ export default function Budget(){
     </div>
     <section className="panel">
       <h3>已對應商店的刷卡通知</h3>
-      <p className="muted">以下為通知金額，並非正式帳單或完整刷卡總額。以新臺幣呈現，尚未計入整趟旅行總花費。</p>
+      <p className="muted">以下為通知金額，並非正式帳單或完整刷卡總額。日圓原幣與台幣通知為同一筆交易，不重複計算，尚未計入整趟旅行總花費。</p>
       {matchedCardTransactions.map(t=><article key={t.id} className="shopping-option">
         <h4>{t.merchant}</h4>
         <p>{t.merchantOnNotice}</p>
-        <p><b>通知金額：NT${t.amount.toLocaleString('zh-TW')}</b></p>
+        <p><b>原幣：¥{t.originalAmount.toLocaleString('ja-JP')} ／ 通知：NT${t.amount.toLocaleString('zh-TW')}</b></p>
         <p><span className="badge">{t.status}</span></p>
         <p className="muted">來源：{t.source}。正式入帳、匯率及手續費以帳單為準。</p>
       </article>)}
       <p className="muted">其餘通知的商店名稱或交易內容尚未辨識清楚，未分配到特定店家。換匯、提款、非本次旅行消費與重複通知不列為新增旅費。</p>
+    </section>
+    <section className="panel">
+      <h3>Suica 實際扣款</h3>
+      <p className="muted">僅為截圖可見紀錄，非完整 Suica 消費總額；不代表三人全程交通費。</p>
+      {suicaTransactions.map(t=><div className="budget-row" key={t.id}><span>{t.title}</span><b>¥{t.amount.toLocaleString('ja-JP')}</b><span className="badge">{t.type==='transfer'?'不列消費':'實際扣款'}</span></div>)}
+      <p><b>截圖可見消費小計：¥{suicaExpenseSubtotal.toLocaleString('ja-JP')}</b></p>
+      <p className="muted">¥3,000 儲值與信用卡 Suica 扣款是同一筆資金移轉，不另算消費。「未收費／已讀取卡片」不列支出。商店、公車路線及完整日期未顯示，不自行推定；星期四鐵路紀錄與琴平、宇多津、高松路線相符。</p>
+      <p className="muted">合併總額前仍須核對 Suica 儲值來源，避免與現金彙總或信用卡儲值重複計算。</p>
     </section>
     <div className="budget-total">
       <span>整趟旅行總花費・3 人合計</span>

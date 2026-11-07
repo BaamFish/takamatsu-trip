@@ -17,17 +17,26 @@ export const tripSpending = {
   total: { amount: null, status: '尚未結算' },
 };
 
-// 僅收錄可辨識商店的刷卡通知，不收錄卡號、個資或原始截圖。
-// 通知的台幣金額不是最終入帳金額，不與日圓現金直接相加。
+// Wallet 原幣交易與先前刷卡通知配對，兩種幣別描述同一筆交易。
 export const matchedCardTransactions = [
-  {
-    id: 'airport-duty-notification',
-    merchant: '高松機場免稅店',
-    merchantOnNotice: 'TAKAMATSU AIRPORT DUTY',
-    amount: 267,
-    currency: 'TWD',
-    source: '使用者提供的刷卡通知',
-    status: '商店名稱可辨識・待正式帳單核對',
-    includedInFinalTotal: false,
-  },
+  ['airport-duty-notification','高松機場免稅店','TAKAMATSU AIRPORT DUTY',1275,267],
+  ['airport-sky-shop','高松商運 天空商店','高松商運 天空商店',2200,461],
+  ['tamamo','玉藻公園','Tamamokouen',900,188],
+  ['aquarium-miyu','四國水族館・商家紀錄 Miyu-Jia','Shikokusuizokukanmiyu-Jia',550,115],
+  ['aquarium-event','四國水族館・商家紀錄 Ibentosu','Shikokusuizokukanibentosu',2360,493],
+  ['aquarium','四國水族館','Shikokusuizokukann',4200,878],
+].map(([id,merchant,merchantOnNotice,originalAmount,amount])=>({
+  id,merchant,merchantOnNotice,originalAmount,originalCurrency:'JPY',amount,currency:'TWD',
+  source:'使用者提供的 Wallet 交易與刷卡通知',
+  status:'原幣金額相符・待正式帳單核對',includedInFinalTotal:false,
+}));
+
+export const suicaTransactions = [
+  {id:'ic-shop-180',title:'高松市消費・商店未顯示',amount:180,type:'expense'},
+  {id:'ic-bus-1300',title:'高松市公車・路線未顯示',amount:1300,type:'expense'},
+  {id:'ic-shop-1200',title:'高松市消費・商店未顯示',amount:1200,type:'expense'},
+  {id:'ic-utazu-takamatsu',title:'JR 宇多津 → 高松',amount:630,type:'expense'},
+  {id:'ic-kotohira-utazu',title:'JR 琴平 → 宇多津',amount:430,type:'expense'},
+  {id:'ic-topup',title:'Suica 儲值（資金移轉）',amount:3000,type:'transfer'},
 ];
+export const suicaExpenseSubtotal=suicaTransactions.filter(t=>t.type==='expense').reduce((sum,t)=>sum+t.amount,0);
