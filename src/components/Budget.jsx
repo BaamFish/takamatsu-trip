@@ -1,5 +1,5 @@
 import {knownExpenses} from '../data';
-import {tripSpending} from '../budget';
+import {tripSpending,matchedCardTransactions} from '../budget';
 import {useStored} from '../hooks';
 
 const fields=[['flight','機票（3 人）'],['hotel','飯店（4 晚）'],['pickup','機場交通'],['ferry','渡輪'],['bike','自行車'],['kotohira','琴平交通與接駁'],['art','其他美術館門票'],['food','餐飲與其他']];
@@ -26,6 +26,18 @@ export default function Budget(){
         <p>尚無可確認的完整刷卡總額；未填金額不代表零支出。取得正式帳單後，再核對各筆消費、退款及入帳幣別。</p>
       </article>
     </div>
+    <section className="panel">
+      <h3>已對應商店的刷卡通知</h3>
+      <p className="muted">以下為通知金額，並非正式帳單或完整刷卡總額。以新臺幣呈現，尚未計入整趟旅行總花費。</p>
+      {matchedCardTransactions.map(t=><article key={t.id} className="shopping-option">
+        <h4>{t.merchant}</h4>
+        <p>{t.merchantOnNotice}</p>
+        <p><b>通知金額：NT${t.amount.toLocaleString('zh-TW')}</b></p>
+        <p><span className="badge">{t.status}</span></p>
+        <p className="muted">來源：{t.source}。正式入帳、匯率及手續費以帳單為準。</p>
+      </article>)}
+      <p className="muted">其餘通知的商店名稱或交易內容尚未辨識清楚，未分配到特定店家。換匯、提款、非本次旅行消費與重複通知不列為新增旅費。</p>
+    </section>
     <div className="budget-total">
       <span>整趟旅行總花費・3 人合計</span>
       <strong>{total.status}</strong>

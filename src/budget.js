@@ -16,3 +16,18 @@ export const tripSpending = {
   creditCard: { amount: null, status: '待正式信用卡帳單核對' },
   total: { amount: null, status: '尚未結算' },
 };
+
+// 僅收錄可辨識商店的刷卡通知，不收錄卡號、個資或原始截圖。
+// 通知的台幣金額不是最終入帳金額，不與日圓現金直接相加。
+export const matchedCardTransactions = [
+  {
+    id: 'airport-duty-notification',
+    merchant: '高松機場免稅店',
+    merchantOnNotice: 'TAKAMATSU AIRPORT DUTY',
+    amount: 267,
+    currency: 'TWD',
+    source: '使用者提供的刷卡通知',
+    status: '商店名稱可辨識・待正式帳單核對',
+    includedInFinalTotal: false,
+  },
+];
