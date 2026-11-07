@@ -1,3 +1,5 @@
+import {useState} from 'react';
+import {visitPoints,visitStatus} from './visitPoints';
 import CostSummary from './CostSummary.jsx';
 import {ArrowRight,ArrowUpRight,MapPin} from 'lucide-react';
 import {trip,journalDays,spots,credits,mapUrl,bookingEvidence} from './journal';
@@ -35,4 +37,29 @@ export function JournalExpenses(){const cash=tripSpending.cash;return <>
  <section className="editorial-section"><Label>SUICA / PAYMENTS, NOT TOP-UPS</Label><h2>交通卡，算扣款不算儲值。</h2><div className="suica-layout"><div>{suicaTransactions.map(t=><div className="ledger-row" key={t.id}><span>{t.title}{t.type==='transfer'&&<small>資金移轉・不列消費</small>}</span><b>{yen(t.amount)}</b></div>)}</div><aside><span className="status">截圖可見五筆消費</span><strong>{yen(suicaExpenseSubtotal)}</strong><p>非完整 Suica 消費，亦非三人全部交通費。¥3,000 儲值與信用卡 Suica 扣款為同一筆資金移轉；「未收費／讀卡」紀錄不列支出。</p></aside></div></section>
  <aside className="accounting-note"><h3>這份旅行帳本怎麼看</h3><ul><li>現金用彙總金額記錄，不再疊加零散現金估算。</li><li>換匯、提款與 Suica 儲值屬資金移轉，不另外算消費。</li><li>台幣、日圓及住宿收據中的美元不能直接相加；同一筆訂單只記一次。</li><li>待正式帳單、退款及支付來源核對後，再更新最終旅行總支出。</li></ul></aside>
  </>}
-export function JournalPlaces(){return <><Intro label="A SMALL GUIDE TO KAGAWA" title="旅途中的風景，留一份索引。">從高松庭園、島嶼港口到琴平與宇多津。每個景點附官方資訊與地圖，方便讀者另行安排。</Intro><div className="place-guide">{spots.map(s=><article key={s.id}><Photo id={s.id}/><div><Label>DAY {s.day} / {s.tag}</Label><h2>{s.name}</h2><p className="jp-caption">{s.jp}</p><p>{s.description}</p><div className="stop-links"><External href={s.official}>官方網站</External><External href={mapUrl(s.jp)}><MapPin size={16}/>Google Maps</External></div><a className="text-link" href={`#day-${s.day}`}>閱讀當天路線 <ArrowRight size={17}/></a></div></article>)}</div><section className="photo-credits"><Label>PHOTO CREDITS</Label><h2>照片來源與使用說明</h2><p>以下影像由 Wikimedia Commons 開放授權取得，下載後存放於本站，並非本次旅行實拍，也不代表當日天候或季節。影像已縮圖、壓縮，版面可能裁切；各影像沿用其原授權。</p>{Object.entries(credits).map(([id,c])=><div className="credit-row" key={id}><b>{spots.find(s=>s.id===id)?.name}</b><span>{c.author}</span><External href={c.source}>來源檔案</External><External href={c.licenseUrl}>{c.license}</External></div>)}</section></>}
+function VisitPoint({point}){return <article className="visit-card">
+ {point.photo&&<Photo id={point.photo}/>}
+ <div className="visit-card-top"><span className="visit-kind">{point.kind}</span><span className={`status visit-status-${point.status}`}>{visitStatus[point.status]}</span></div>
+ <h3>{point.name}</h3><p className="jp-caption">{point.jp}</p><p>{point.description}</p>
+ <div className="stop-links"><External href={point.official}>官方資訊</External><External href={mapUrl(point.jp)}><MapPin size={16}/>Google Maps</External></div>
+ <a className="text-link" href={`#day-${point.day}`}>對應 D{point.day}：{point.stop} <ArrowRight size={15}/></a>
+ </article>}
+export function JournalPlaces(){
+ const [dayFilter,setDayFilter]=useState(0);
+ const [kind,setKind]=useState('全部');
+ const matching=visitPoints.filter(p=>(!dayFilter||p.day===dayFilter)&&(kind==='全部'||p.kind===kind));
+ const days=journalDays.filter(d=>matching.some(p=>p.day===d.id));
+ return <><Intro label="OUR TRIP, PLACE BY PLACE" title="把走過的路，對上每一個地方。">依 D1～D5 的行程，把景點、美術館、體驗與餐廳拆開整理。已確認到訪、行程紀錄與已購票分別標示；彈性規劃另外收起，不當作到訪證明。</Intro>
+ <section className="visit-controls" aria-label="篩選旅途地點">
+ <nav className="journal-tabs" aria-label="依日期篩選地點"><button aria-pressed={dayFilter===0} onClick={()=>setDayFilter(0)}><small>ALL FIVE DAYS</small><span>完整旅途索引</span></button>{journalDays.map(d=><button key={d.id} aria-pressed={dayFilter===d.id} onClick={()=>setDayFilter(d.id)}><small>DAY {d.id} · {d.date}</small><span>{d.area}</span></button>)}</nav>
+ <div className="visit-filter-row"><p>{matching.filter(p=>p.status!=='optional').length} 個景點／餐飲／體驗紀錄・{matching.filter(p=>p.status==='optional').length} 個彈性規劃</p><label>類型 <select value={kind} onChange={e=>setKind(e.target.value)}>{['全部',...new Set(visitPoints.map(p=>p.kind))].map(k=><option key={k}>{k}</option>)}</select></label></div>
+ <p className="small-note">索引直接對應每日文章。已購票不等於已確認入館；區域照片是授權參考影像，不代表每張卡片的店家或場館實照。</p>
+ </section>
+ {days.length===0&&<div className="editor-note"><p>這一天沒有符合類型的紀錄。</p><button className="solid-button" onClick={()=>{setDayFilter(0);setKind('全部')}}>查看全部地點</button></div>}
+ <div className="visit-days">{days.map(day=>{const records=matching.filter(p=>p.day===day.id&&p.status!=='optional');const optional=matching.filter(p=>p.day===day.id&&p.status==='optional');return <section className="visit-day" key={day.id}>
+ <header className="visit-day-heading"><div><Label>DAY {day.id} / {day.date} {day.weekday}</Label><h2>{day.area}</h2><p>{day.route}</p><a className="text-link" href={`#day-${day.id}`}>閱讀這一天的完整行程 <ArrowRight size={17}/></a></div><Photo id={day.photo}/></header>
+ <div className="visit-grid">{records.map(p=><VisitPoint key={p.id} point={p}/>)}</div>
+ {optional.length>0&&<details className="optional-visits"><summary>彈性規劃・尚未確認到訪（{optional.length}）</summary><div className="visit-grid">{optional.map(p=><VisitPoint key={p.id} point={p}/>)}</div></details>}
+ </section>})}</div>
+ <section className="photo-credits"><Label>PHOTO CREDITS</Label><h2>照片來源與使用說明</h2><p>以下影像由 Wikimedia Commons 開放授權取得，下載後存放於本站，並非本次旅行實拍，也不代表當日天候或季節。影像已縮圖、壓縮，版面可能裁切；各影像沿用其原授權。</p>{Object.entries(credits).map(([id,c])=><div className="credit-row" key={id}><b>{spots.find(s=>s.id===id)?.name}</b><span>{c.author}</span><External href={c.source}>來源檔案</External><External href={c.licenseUrl}>{c.license}</External></div>)}</section></>;
+}
