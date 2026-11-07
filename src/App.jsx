@@ -7,10 +7,10 @@ const navigation=[['home','旅行故事',House],['daily','五日行程',BookOpen
 const readRoute=()=>{const h=location.hash.slice(1);if(/^day-[1-5]$/.test(h))return h;return ({transport:'travel',reservations:'travel',prepare:'expenses',japanese:'home'})[h]|| (navigation.some(([k])=>k===h)?h:'home')};
 const transportNotes=[
  ['台中 ↔ 高松','星宇航空 JX300 去程 08:50–12:20，JX301 回程 13:20–15:40。三人來回付款 NT$36,150；這是本次訂單金額，不代表日後相同票價。','https://www.starlux-airlines.com/','航空公司'],
- ['抵達機場 → 飯店','預訂 Klook 接機，車型 Toyota Altis 或同級。憑證標示三位乘客、行李上限兩件；類似家庭旅行可先確認行李尺寸，避免只看乘客座位數。費用待取得。','https://www.takamatsu-airport.com/','機場交通'],
+ ['抵達機場 → 飯店','預訂 Klook 接機，車型 Toyota Altis 或同級。憑證標示三位乘客、行李上限兩件；類似家庭旅行可先確認行李尺寸，避免只看乘客座位數。接機費用 NT$3,300，由使用者提供。','https://www.takamatsu-airport.com/','機場交通'],
  ['高松 ↔ 直島宮浦','旅前選定去程 08:12–09:02、回程 17:00–18:00；非旅後驗證的實際班次。上島日為文化日，候船與島內移動留緩衝。','https://shikokukisen.com/takamatsu-miyanoura/','四國汽船'],
  ['高松 ↔ 小豆島土庄','旅前選定去程 08:02–09:02、回程 17:30–18:30。島內接觀光巴士，報到窗口為 09:30–10:10。','https://www.shikokuferry.com/route2','小豆島渡輪'],
- ['直島電動自行車','OUGIYA 三台、09:30 預約。島上有坡道，美術館周邊有車輛進入限制，必要時配合巴士。預約信未顯示租金。','https://ougiya-naoshima.jp/','OUGIYA'],
+ ['直島電動自行車','OUGIYA 三台、09:30 預約。島上有坡道，美術館周邊有車輛進入限制，必要時配合巴士。每台一日 ¥1,500，三台合計 ¥4,500，由使用者提供單價；預約信註明現場付款。','https://ougiya-naoshima.jp/','OUGIYA'],
  ['小豆島島巡觀光巴士','成人三人共 ¥29,400，10:15–16:15，從土庄港觀光中心出發。景點順序由業者安排，並非自由選擇停留時間。','https://shodoshima-kotu.com/tw/plan/shuttlebus/','巴士業者'],
  ['高松 → 琴平 → 宇多津 → 高松','去程しまんと3号 08:25–09:00，三人指定席 ¥12,607。後段實際使用 JR：Suica 截圖琴平→宇多津 ¥430、宇多津→高松 ¥630，為單張卡可見扣款，非三人合計。','https://www.jr-shikoku.co.jp/','JR 四國']
 ];

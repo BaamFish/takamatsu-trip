@@ -15,7 +15,8 @@ test('公開旅行路線納入旅後確認，所有景點圖片與外部連結�
 test('付款憑證、刷卡配對與現金分開，未產生重複總額或洩露識別碼',()=>{
  assert.equal(bookingEvidence.find(e=>e.id==='air').amount,36150);
  assert.equal(bookingEvidence.find(e=>e.id==='hotel').amount,17274.32);
- assert.equal(bookingEvidence.find(e=>e.id==='pickup').amount,null);
+ assert.equal(bookingEvidence.find(e=>e.id==='pickup').amount,3300);
+ assert.equal(bookingEvidence.find(e=>e.id==='bikes').amount,1500*3);
  assert.equal(tripSpending.total.amount,null);
  assert.equal(suicaExpenseSubtotal,3740);
  assert.equal(new Set(matchedCardTransactions.map(t=>t.id)).size,6);

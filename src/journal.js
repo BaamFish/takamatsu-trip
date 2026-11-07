@@ -11,7 +11,7 @@ export const journalDays=[
  ]},
  {id:2,date:'11.03',weekday:'TUE',title:'搭船去直島，把一天交給藝術',area:'直島・宮浦・本村',photo:'naoshima',lead:'從高松港出發，在宮浦租電動自行車，把港口、本村與美術館串成一日路線。11 月 3 日適逢文化日，行程保留候船與移動緩衝。',route:'高松港 → 宮浦港 → OUGIYA → 紅南瓜・本村 → 直島新美術館 → Benesse House／Valley Gallery → 宮浦港 → 高松',notes:['兩組美術館票共三人 ¥8,400，購票確認信已核對；票券有效期間不等於指定入場時段。','電動自行車仍會遇到坡道；園區周邊依進入限制與體力改搭巴士，不把自行車當成全程都能騎到門口。'],stops:[
  ['去程規劃 08:12–09:02','高松港 → 宮浦港','保留旅前選定船班供讀者理解路線，並非旅後核實的實際搭乘時間。重排行程請查最新時刻。','高松港 四国汽船 フェリー乗り場','https://shikokukisen.com/takamatsu-miyanoura/'],
- ['09:30 預訂','OUGIYA 電動自行車','三台電動自行車，預約信註明現場付款；費用未提供，未推算租金。','おうぎや レンタサイクル 直島','https://ougiya-naoshima.jp/'],
+ ['09:30 預訂','OUGIYA 電動自行車','三台電動自行車，每台一日 ¥1,500，合計 ¥4,500，金額由使用者提供；預約信註明現場付款，不推定付款工具。','おうぎや レンタサイクル 直島','https://ougiya-naoshima.jp/'],
  ['上午路線','宮浦紅南瓜與本村地區','從宮浦港出發看港口藝術，再前往本村。家計畫個別場館是否入內與門票另行核對。','直島 家プロジェクト 本村','https://benesse-artsite.jp/art/arthouse.html'],
  ['已購票','直島新美術館','成人三張，每張 ¥1,500，小計 ¥4,500。參觀時間以個人票券為準。','直島新美術館','https://benesse-artsite.jp/art/nnmoa.html'],
  ['已購票','Benesse House Museum／Valley Gallery','成人三張，每張 ¥1,300，小計 ¥3,900。黃南瓜列為周邊順遊點，依體力安排。','ベネッセハウス ミュージアム','https://benesse-artsite.jp/art/benessehouse-museum.html'],
@@ -52,8 +52,8 @@ export const bookingEvidence=[
  {id:'jr',title:'高松 → 琴平・JR 指定席',amount:12607,currency:'JPY',detail:'11/05 08:25–09:00，しまんと3号，成人 3 人，信用卡支付；後續取票 QR 發行通知已找到。',source:'2026/10/21 Japan Travel 申請及 QR 發行通知',status:'付款金額已核對'},
  {id:'art',title:'直島兩組美術館票',amount:8400,currency:'JPY',detail:'直島新美術館 ¥1,500×3；Benesse House／Valley Gallery ¥1,300×3，信用卡支付。',source:'2026/10/18（日本時間）購票確認郵件',status:'付款金額已核對'},
  {id:'bus',title:'小豆島島巡觀光巴士',amount:29400,currency:'JPY',detail:'成人 ¥9,800×3，11/04 10:15–16:15。已找到預訂與報到通知；付款方式未確認。',source:'小豆島交通預訂確認郵件',status:'訂單金額・付款待核對'},
- {id:'pickup',title:'高松機場接機',amount:null,currency:'TWD',detail:'3 人、Toyota Altis 或同級，前往高松世紀飯店。已找到確認信、憑證與收據通知，但可讀內容沒有顯示金額。',source:'Klook 接機確認信與 PDF 憑證',status:'金額未取得'},
- {id:'bikes',title:'OUGIYA 電動自行車',amount:null,currency:'JPY',detail:'11/03 09:30、3 台。預約信註明現場付款，未顯示租金。',source:'OUGIYA 預約確認郵件',status:'金額未取得'}
+ {id:'pickup',title:'高松機場接機',amount:3300,currency:'TWD',detail:'3 人、Toyota Altis 或同級，前往高松世紀飯店；接機費用為本筆服務合計，付款工具待核對。',source:'Klook 確認信與 PDF 憑證；金額由使用者補充',status:'使用者提供金額'},
+ {id:'bikes',title:'OUGIYA 電動自行車',amount:4500,currency:'JPY',detail:'11/03 09:30、3 台，每台一日 ¥1,500，合計 ¥4,500。預約信註明現場付款，付款工具待核對；不另外疊加到現金彙總。',source:'OUGIYA 預約確認郵件；單價由使用者補充',status:'使用者提供單價・三台合計'}
 ];
 export const mapUrl=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
 
