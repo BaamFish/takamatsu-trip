@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import {days} from '../src/data.js';
+import {credits} from '../src/journal.js';
 
 const base=process.env.VITE_BASE_PATH || '/takamatsu-trip/';
 const root=path.resolve('dist');
@@ -17,6 +17,7 @@ for(const ref of refs){
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.webmanifest'),'utf8'));
 for(const icon of manifest.icons)assert.ok(fs.existsSync(path.join(root,icon.src)));
 const sw=fs.readFileSync(path.join(root,'sw.js'),'utf8');
-for(const day of days){assert.ok(fs.existsSync(path.join(root,`images/${day.scene}.svg`)));assert.ok(sw.includes(`images/${day.scene}.svg`));}
+for(const photo of Object.values(credits)){assert.ok(fs.existsSync(path.join(root,photo.file)));assert.ok(sw.includes(photo.file),`Photo missing from offline precache: ${photo.file}`);}
 assert.ok(sw.includes('index.html'));
 console.log(`Verified production entry, JS/CSS base ${base}, local images, manifest and offline precache.`);
+

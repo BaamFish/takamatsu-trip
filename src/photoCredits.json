@@ -1,0 +1,56 @@
+{
+  "ritsurin": {
+    "file": "photos/ritsurin.jpg",
+    "title": "Ritsurin garden kangetsu bridge.jpg",
+    "author": "ブルーノ・プラス",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ritsurin_garden_kangetsu_bridge.jpg",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  },
+  "naoshima": {
+    "file": "photos/naoshima.jpg",
+    "title": "Naoshima miyanoura port.jpg",
+    "author": "ブルーノ・プラス",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Naoshima_miyanoura_port.jpg",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  },
+  "olive": {
+    "file": "photos/olive.jpg",
+    "title": "Shodoshima Olive Park Shodo Island Japan21bs3.jpg",
+    "author": "663highland",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan21bs3.jpg",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  },
+  "konpira": {
+    "file": "photos/konpira.jpg",
+    "title": "JP-Kagawa-Kotohira-gū(Shrine)-Main-Shrine.JPG",
+    "author": "Kanchi1979",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:JP-Kagawa-Kotohira-g%C5%AB(Shrine)-Main-Shrine.JPG",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  },
+  "tamamo": {
+    "file": "photos/tamamo.jpg",
+    "title": "Takamatsu castle09s3872.jpg",
+    "author": "663highland",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Takamatsu_castle09s3872.jpg",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  },
+  "aquarium": {
+    "file": "photos/aquarium.jpg",
+    "title": "Shikoku Aquarium Watatsumi.jpg",
+    "author": "Totti",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shikoku_Aquarium_Watatsumi.jpg",
+    "note": "縮圖與壓縮；版面可能裁切。示意照片，非本次旅途實拍。"
+  }
+}
